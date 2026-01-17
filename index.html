@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>发送邮件</title>
+    <script>
+        // 从URL获取参数（如果你想动态设置收件人、主题等，可以通过链接参数传递）
+        // 本例使用页面内直接定义的固定值，更稳定
+        function initEmail() {
+            var mailtoLink = "mailto:robot@aftersale.net"; // 收件人
+            mailtoLink += "?subject=Replace Your Accessories, Clean Like New"; // 主题
+            mailtoLink += "&body=Hello, I need some new accessories."; // 正文，这里可以填写你的正文内容，如果需要换行，使用 %0D%0A
+
+            // 自动触发点击
+            window.location.href = mailtoLink;
+
+            // 可选：跳转后，提示用户返回原页面或关闭
+            setTimeout(function() {
+                document.getElementById('message').innerHTML = '邮件客户端已打开。如果未自动打开，请检查您的默认邮件设置。<br>你可以关闭此标签页。';
+            }, 500);
+        }
+        // 页面加载后立即执行
+        window.onload = initEmail;
+    </script>
+</head>
+<body>
+    <p id="message">正在为您打开邮件应用...</p>
+</body>
+</html>
